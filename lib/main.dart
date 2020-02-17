@@ -30,22 +30,31 @@ class HelloPage extends StatefulWidget {
 
 class _HelloPageState extends State<HelloPage> {
   String _message = 'Hello World'; // _ 붙이면 private 변경할 변수
+  int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add), onPressed: _changeMessage), // _changeMessage 를 통해 _message 값 변경
+            child: Icon(Icons.add), onPressed: _changeMessage),
+        // _changeMessage 를 통해 _message 값 변경
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Text(_message,
-            style: TextStyle(fontSize: 30))); //widget 은 HelloPage class 를 참조한다.
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(_message, style: TextStyle(fontSize: 30)),
+            Text('$_counter', style: TextStyle(fontSize: 30)),
+          ],
+        ))); //widget 은 HelloPage class 를 참조한다.
   }
 
   void _changeMessage() {
     setState(() {
       _message = '헬로월드';
+      _counter++;
     });
   }
 }
