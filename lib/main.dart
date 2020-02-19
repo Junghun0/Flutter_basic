@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/Insta_root_page.dart';
 import 'cupertino_page.dart';
 
 void main() => runApp(MyApp());
@@ -55,6 +56,14 @@ class _HelloPageState extends State<HelloPage> {
                     MaterialPageRoute(builder: (context) => CupertinoPage())
                   );
                 },
+            ),
+            RaisedButton(
+              child: Text('Insta Clone'),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RootPage())
+                );
+              },
             )
           ],
         ))); //widget 은 HelloPage class 를 참조한다.
