@@ -16,14 +16,16 @@ if (flutterVersionCode == null) {
     flutterVersionCode = '1'
 }
 
-def flutterVersionName = localProperties.getProperty('flutter.versionName')ㅑ
-if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
-}
+//def flutterVersionName = localProperties.getProperty('flutter.versionName')ㅑ
+//if (flutterVersionName == null) {
+//    flutterVersionName = '1.0'
+//}
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -41,8 +43,9 @@ android {
         applicationId "com.example.first.junghoon.flutter_basic"
         minSdkVersion 21
         targetSdkVersion 28
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionName '1.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -64,4 +67,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }
+
