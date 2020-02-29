@@ -1,7 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/Insta_create_page.dart';
 
 class SearchPage extends StatefulWidget {
+
+  final FirebaseUser user;
+
+  SearchPage(this.user);
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -16,7 +22,7 @@ class _SearchPageState extends State<SearchPage> {
         child: Icon(Icons.create),
         backgroundColor: Colors.blue,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CreatePage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CreatePage(widget.user)));
         },
       ),
     );
